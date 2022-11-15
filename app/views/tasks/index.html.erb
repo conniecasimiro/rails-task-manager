@@ -1,0 +1,16 @@
+<h1>My Tasks</h1>
+
+<ul style="list-style-type: none;">
+  <% @tasks.each do |task| %>
+    <% if task.completed %>
+      <li><%= check_box_tag task, task.completed, {:checked => "checked"} %>
+    <% else %>
+      <li><%= check_box_tag(@task)%>
+    <% end %>
+    <%= link_to task.title, task_id_path(task) %></li>
+  <% end %>
+</ul>
+
+<div type="button" class="btn btn-warning btn-lg">
+  <%= link_to "Add a new task", tasks_new_path %>
+</div>
